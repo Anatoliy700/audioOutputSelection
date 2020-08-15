@@ -6,6 +6,7 @@ const audioOutputSelection = {
     storageKey: 'audioout',
     selectId: 'audioOuts',
     parentForSelect: 'body',
+    cssHref: 'https://anatoliy700.github.io/audioOutputSelection/css/audioOutputSelection.css',
   },
   audioOuts: [],
   audio: null,
@@ -14,9 +15,17 @@ const audioOutputSelection = {
     this.getAudio();
     if (this.audio !== null) {
       this.getPermission();
+      this.addStyleCss();
     } else {
       console.error(`Audio элемент "${this.settings.audioElem}" не найден`);
     }
+  },  
+
+  addStyleCss() {
+    let elem = document.createElement('link');
+    elem.href = this.settings.cssHref;
+    elem.rel = 'stylesheet';
+    document.getElementsByTagName('head')[0].appendChild(elem);
   },
 
   getAudio() {
