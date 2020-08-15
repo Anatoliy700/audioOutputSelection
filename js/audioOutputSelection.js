@@ -12,10 +12,10 @@ const audioOutputSelection = {
   audio: null,
   init(settings = {}) {
     Object.assign(this.settings, settings);
+    this.addStyleCss();
     this.getAudio();
     if (this.audio !== null) {
       this.getPermission();
-      this.addStyleCss();
     } else {
       console.error(`Audio элемент "${this.settings.audioElem}" не найден`);
     }
